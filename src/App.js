@@ -1,16 +1,24 @@
-import { Route, Routes } from "react-router-dom";
-import Home from "./component/Home";
-import Info from "./component/Info";
-import User from "./component/User";
+import A from "./component2/A";
+import B from "./component2/B";
+import { UserProvider } from "./context/ContextAPI2";
+
 
 function App() {
+
+  //1. 값을 공통으로 전달받는 상위 컴포넌트에 Provider를 감싼다.
+  //2. 값을 사용하는 컴포넌트에서는 userContext()훅으로 Context받습니다.
+
   return (
-    <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/info' element={<Info/>}/>
-      <Route path='/user' element={<User/>}/>
-    </Routes>    
-  );
+    <>
+      <h3>App컴포넌트</h3>
+
+      <UserProvider>
+      <A/>
+      <B/>
+      </UserProvider>
+    </>
+  )
+
 }
 
 export default App;
